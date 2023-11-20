@@ -1,0 +1,11 @@
+master -slave architecture using freestyle jobs
+> jenkins as a root user here.
+> create ssh connection to slave machine.
+>slave.jar file is required for push the workload from master to slave and execute on slave machine. it exists in master but not slave so we download "slave.jar" 
+>it can be downloading from master so,#wget http://private_ip_of_jenkinsserver:8080/jnlpJars/slave.jar
+>on slave machine create workspace to work #cd folder1  #pwd #copy that path.
+>go to jenkins dashboad create node as slave1
+# select permanant agent
+# give root path
+#  launch agent via execution command on controller
+# in launch command #ssh ubuntu@ipof slave java -jar slave.jar
