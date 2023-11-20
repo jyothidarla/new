@@ -1,0 +1,18 @@
+declarative syntax:
+#pipeline
+{
+  agent any 
+    stages
+  {
+    steps
+    {//
+    }
+  }
+}
+scripted pipeline:
+#node('built-in')
+{
+  stage
+  {//}
+  }
+  
