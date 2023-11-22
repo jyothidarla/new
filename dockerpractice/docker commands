@@ -1,0 +1,9 @@
+multi container architecture: linking(--link)
+  @To connect 2 busybox containers
+      #docker run --name c1 -it busybox
+      without exit we just type ctrl+p or q
+      #docker run --name c2 -it busybox
+      >ping c1
+  @TO connect wordpress with database.
+  
+  
