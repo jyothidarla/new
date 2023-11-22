@@ -1,0 +1,17 @@
+Build httpd image and through that image create container. run simple html css webserver.
+#mkdir <dirname> and cd to that dir
+# download any free css template
+#wget “ ===============”
+#unzip file >>  cd <htmldir>
+#cp –R * ../.  this means whatever files are in pwd are move into back home.
+#cd ..
+httpd apache image, to run simple HTML server with docker file:
+FROM httpd:2.4
+COPY . /usr/local/apache2/htdocs/
+
+
+
+  
+FROM httpd:2.4
+COPY . /usr/local/apache2/htdocs/
+EXPOSE 80
