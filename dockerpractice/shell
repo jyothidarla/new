@@ -1,0 +1,16 @@
+create shell script file with that create dockerfile and execute shellfile.
+@create: vim script.sh
+
+          apt-get update
+          for x in tree git wget
+          do
+                  apt-get install -y $x
+          done
+>give execute permissions #chmod u+x script.sh 
+here we have to copy the script file into root
+@create: vim dockerfile
+            vim dockerfile
+            FROM ubuntu
+            MAINTIANER intelliqit
+            COPY ./script.sh /
+            RUN ./script.sh
