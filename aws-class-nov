@@ -1,0 +1,63 @@
+region: region is seperate geographical areas. it consist/which has kept isolated servers that are connected with each other
+The AWS Global Infrastructure comprises AWS Regions and Availability Zones. AWS Regions are separate geographic areas. AWS Regions consist of multiple, physically separated and isolated Availability Zones that are connected with low latency, high throughput, highly redundant networking.
+> availability zones consists of datacenters.
+
+How many Availability Zones to use?
+>>There are anywhere between two and five availability zones in an AWS Region. Moving forward, the standard will be three or more per region.
+
+
+security and access compliance
+IAM: identity access management--2 type 1.console access and 2.programmatic access
+IAM has globally utilized but create in one location. self-sustaining, region based services that are available globally
+IAM: central level management
+individual IAMuser: 
+group of users create IAMgroup
+> anywork in aws has done under root.
+> here user is not only a user/person,application, which one whois accessing aws resources.
+programmatic access: we can access the server through cmd promt.
+
+steps to implement programmatic access
+    # install aws CLI on windows
+    # IAM security
+    # create access key
+>in command prompt, i have to configure my command prompt 
+  $aws configure
+   >access key
+   >secret access key
+  $aws s3 ls
+it will display all the buckets(its bucket names owned by the user). 
+these buckets are created by user
+
+we can create alias for account number through that we can access console.
+create IAM user and download credentails and access console using alias.
+
+policies:
+- managed by aws for all a/c's
+- is available for one a/c
+- exclusively available for one a/c.
+addpermissions/policies
+- managed by aws:
+- customer managed: this is available for single a/c only
+- create inlinepolicy: this will not available for other users, only using withing the organization.
+*password policies: for security measure to strenghthen the password in organization needs to be take actions.
+
+
+s3:
+data is most important. data is a unmangaed one so we must be sorted into manged content.
+server: timesharing and datasharing
+os: manages hardware resources.
+cloud: computing done through internet
+s3: simple storage service:which is scalable 
+> created a bucket at the root level,    upto 100 buckets can be created in s3. 
+*here bucket is a public cloud storage container for objects starage in s3.
+      $crete a bucket
+
+> bucket has must be a unique name.s3 is a self-sustaining. must be globally unique name.
+>ACLS access control lists. its defines which aws accounts granted access or group accounts access.
+>ACLS add subresources for every s3 bucket and objects.if its disabled no one will access thsi except owner of the bucket.
+
+>BUCKET VERSIONING: keep tracking of old and latest versions of files/objects
+EVENTUAL CONSISTENCY: at last its consistent: 
+> ENCRIPTION: decipher :we cant understand but we can read.
+    Amazon S3 pioneered object storage in the cloud with high availability, performance, and virtually unlimited scalability, with eventual consistency.
+    Millions of customers of all sizes and industries have used Amazon S3 to store and protect any amount of data for a range of use cases.
