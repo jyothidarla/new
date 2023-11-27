@@ -28,10 +28,22 @@ Imperative commands: using like cli for doing operations on files.
   -----------------------------------------------------------------------------------------
   use yaml files.
 
-  >apiVersion:V1
-   kind: which type of kubernetes obeject, that you have planning to create. or which type of kubernetes object you have to create.
-         and for creating that objects it require some code libraries are necessary.when code lib is available then it can create kubenetes objects.
+  > apiVersion:V1
+  > kind: which type of kubernetes obeject, that you have planning to create. or which type of kubernetes object you have to create.
+         and for creating that objects it require some "code libraries are necessary".when code lib is available then it can create kubenetes objects.
        , that is known as "apiVersion" .
        fro ex: if i want to create a pod, i want to have V1 codelibrary, imported, then process of pod has been created.
-       
-   
+  ------
+Basics of kubernetes: which type of version we have to take, fof obejects.
+--------
+ > metadata: an additional info 
+ > spec: important component: 
+     if you are creating pods-containers info is there,
+     if you are craeting service objects- network info is there 
+     specification will have what are the objects core components are there.
+
+Every yaml file has these things---apiVersion, kind, matadata, spec.
+-----------------------------------------------------------------------------------------------------------------
+Basic definition files:
+
+every yaml file has left hand
