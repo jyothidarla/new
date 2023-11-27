@@ -46,4 +46,6 @@ Every yaml file has these things---apiVersion, kind, matadata, spec.
 -----------------------------------------------------------------------------------------------------------------
 Basic definition files:
 
-every yaml file has left hand
+every yaml file has left hand are predefined, not change but 
+> lables : <key-value> anything we can give, additional 
+
