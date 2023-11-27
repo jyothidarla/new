@@ -1,3 +1,4 @@
+Date: 24/8/2023 
 create a cluster: with 3 nodes(slaves/mineons)
 install required softwares to set up:kubectl and eksctl.create a cluster. makesure you have configure <aws-iam-authorization>
 #kubectl get nodes................it will show all the nodes in the machine.
@@ -47,5 +48,63 @@ Every yaml file has these things---apiVersion, kind, matadata, spec.
 Basic definition files:
 
 every yaml file has left hand are predefined, not change but 
-> lables : <key-value> anything we can give, additional 
+> lables : <key-value> anything we can give, additional info about the obj.
+> spec: child element we have is "containers", here we have to create a pod so within the pod its has a containers.
+   #spec:
+     - containers: 
+         name:
+         image:
+
+>kubectl apply -f <name-of-the-file>
+>kubectl get pods
+>kubectl delete -f <name-of-the-file>
+----------------------------------------------------------------
+create postgres definition file: #vim postgres-pod-definition.yml
+---
+apiVersion: v1
+kind: pod
+metadata: 
+  name: postgres_pod
+  labels: 
+    type: db
+    author: jyothi
+spec: 
+  - containers:
+       name: mybd
+       image: postgres
+       env: 
+         - name: POSTGRES_PASSWORD
+           value: jyothi@123
+         - name: POSTGRES_USER
+           value: jyothi
+         - name: POSTGRES_DB
+           value: mydb  
+...
+#kubectl apply -f postgres-pod-definition.yml
+#kubectl get pods
+#kubectl get nodes
+#kubectl get pods -o wide
+#kubectl describe pods postgres-pod-definition.yml | less
+#kubectl delete -f postgres-pod-definition.yml -------k8s required more h/w resources compared to dockerswarm.
+------------------------------------------------------------------------------------------------------------------------
+create jenkins pod & port mapping
+vim pod-jenkins.yml
+---
+apiVersion: v1
+kind: pod
+metadata: 
+  name: myjenkins-pod
+  labels:
+    type: automation-tool
+    author: jyothi
+spec:
+  - containers:
+      name: myjenkins
+      image: jenkins/jenkins
+      ports:
+        - containerPort: 8080.......................(predefined)
+          hostPort: 8080............................(mychoice)
+...
+
+
 
