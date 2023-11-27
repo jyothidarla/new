@@ -105,6 +105,54 @@ spec:
         - containerPort: 8080.......................(predefined)
           hostPort: 8080............................(mychoice)
 ...
+#kubectl apply -f pod-jenkins.yml
+#kubectl get pods -o wide
+#kubectl describe pods pod-jenkins.yml
+#kubectl get nodes -o wide ...........where you have notice additional info about nodes(roles<none>....slaves)
+#kubectl delete pods -f pod-jenkins.yml
 
-
-
+> it will not work because we create yaml files on vi editor, use pycharm.
+----------------------------------------------------------------------------------------------------------
+namespace: logical partion in the k8s cluster.
+ > when k8s created automatically some namespaces are generated.
+#kubectl get namespaces
+    > except the <default> namespace remaining are for maintained all nodes. like kubeschedular giving h/w resources, etcd- desired states, control manager.
+     > all those services/objects are running in the from of pods those are running in the bachground.
+    > we were creating pods on default namespace.
+    > by default all pods are getting created in the <default> namespace.
+    > If you want to create own namespace for running pod. first of all create that namespace.
+<namespaces are defined in metadata>
+   #vim namespace.yml
+   ---
+   apiVersion: v1
+   kind: Namespace
+   metadata:
+     name: test-ns
+   ...
+#kubectl apply -f namespace.yml
+#kubectl get namespace
+-------------------------
+use that above namespace, create pod
+#vim pod-webserver.yml
+---
+apiVersion: v1
+kind: pod
+metadata:
+ name: webserver-pod
+ namespace: test-ns
+ labels:
+   type: webserver
+   author: jyothi
+spec: 
+  - containers
+      name: webserver-http
+      iamge: httpd
+      ports:
+        - containerPort: 80
+          hostPost: 8080
+...
+#kubectl appy -f pod-webserver.yml
+#kubectl get pods -o wide
+let check httpd webserver running or not on that external ip.
+#kubectl delete -f pod-webserver.yml
+-----------------------------------------------
