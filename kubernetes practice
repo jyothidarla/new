@@ -1,0 +1,37 @@
+create a cluster: with 3 nodes(slaves/mineons)
+install required softwares to set up:kubectl and eksctl.create a cluster. makesure you have configure <aws-iam-authorization>
+#kubectl get nodes................it will show all the nodes in the machine.
+#kubectl run --image nginx webserver.............it will run nginx container on nodes.
+#kubectl get pods.............webserver pod is available. here pod is smallest layer object on top of a container. kubectl commands will communicate to the pod. inthis way irrespective of any underlyning architecture(dockerengine) it will
+#kubectl get pods -o wide .........out of the 3 slaves i have where webserver contaainer is running? "its shows name of the nodes"
+lets check which one has this name?
+#kubectl get nodes. it will shows all the nodes info
+> we know the that on the master machine there is a component called kubescheduler, it checks the h/w resources,which decides that whre the pod suppose to be created. its entirely its job.
+>To know the entire details about pod: 
+  #kubectl describe pods webserver<name> | less
+  >its showing pod name, namespaces(logical partitions in the cluster,the pods are running the namespace cannot communicate with other pods running in the other namespace ).
+  >(node_which machine)where its running, when its started, labels associated, image, whether its pod running status or not. all the info cames over here sec called "events" 
+  To delete pods
+  #kubectl delete pods webserver
+  ------------------------------------------------------------------------
+Imperative commands: using like cli for doing operations on files.
+  
+  #To create mysql as a pod.
+  #kubctl run --image mysql:5 mydb<pod_name> --env MYSQL_ROOT_PASSWD=jyothi............pod as name mydb has been created.
+  #kubectl get pods.....my pod is in running status.
+  #kubectl get pods -o wide
+  #kubectl exec -it mydb -- bash...it will enter into mysql environment.
+  >>mysql -u root -p
+   give that password. and execute the mysql commands.
+   #kubectl delete pods mydb
+  
+  -----------------------------------------------------------------------------------------
+  use yaml files.
+
+  >apiVersion:V1
+   kind: which type of kubernetes obeject, that you have planning to create. or which type of kubernetes object you have to create.
+         and for creating that objects it require some code libraries are necessary.when code lib is available then it can create kubenetes objects.
+       , that is known as "apiVersion" .
+       fro ex: if i want to create a pod, i want to have V1 codelibrary, imported, then process of pod has been created.
+       
+   
