@@ -1,0 +1,7 @@
+first we have to setup VPC with 2 availability zones and 2 subnets.
+create template for autoscaling groups: in this will create 2 instances(no public ip's) using vpc private subnets
+for application deploying in private instances. we need to connect those instances but they are in private network. how to connect?
+ using bastion host server we can copy the keys into bastion host.
+ >launch instance name it as bastion host. copy the keys using that connect private ec2 instance and run appliaction.
+ >go to load balencer and create it it gives DNS. through that we can access the application.
+ 
